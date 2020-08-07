@@ -1,4 +1,4 @@
-package com.microservice.poc.auth.model;
+package com.microservice.poc.common.model;
 
 import com.microservice.poc.common.utility.Utility;
 import lombok.*;

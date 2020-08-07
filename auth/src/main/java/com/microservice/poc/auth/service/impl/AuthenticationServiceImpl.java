@@ -2,7 +2,6 @@ package com.microservice.poc.auth.service.impl;
 
 import com.microservice.poc.auth.dto.LogInRequestDto;
 import com.microservice.poc.auth.dto.LogInResponseDto;
-import com.microservice.poc.auth.model.User;
 import com.microservice.poc.auth.repository.DataRepository;
 import com.microservice.poc.auth.repository.RedisRepository;
 import com.microservice.poc.auth.service.IAuthenticationService;
@@ -10,6 +9,7 @@ import com.microservice.poc.auth.service.IJwtTokenService;
 import com.microservice.poc.auth.utility.ErrorEnum;
 import com.microservice.poc.auth.utility.Utility;
 import com.microservice.poc.auth.utility.errorResponseUtility.LocalizedErrorResponse;
+import com.microservice.poc.auth.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;

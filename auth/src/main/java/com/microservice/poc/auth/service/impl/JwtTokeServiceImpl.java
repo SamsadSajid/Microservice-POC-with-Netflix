@@ -3,7 +3,7 @@ package com.microservice.poc.auth.service.impl;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.microservice.poc.auth.model.User;
+import com.microservice.poc.common.model.User;
 import com.microservice.poc.auth.service.IJwtTokenService;
 import com.microservice.poc.auth.utility.Utility;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 
 @Service
-public class IJwtTokeServiceImpl implements IJwtTokenService {
+public class JwtTokeServiceImpl implements IJwtTokenService {
 
     @Override
     public Optional<String> generateAccessToken(int accessTokenLifeTime, User user) {

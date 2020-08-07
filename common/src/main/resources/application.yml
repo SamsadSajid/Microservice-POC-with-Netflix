@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    generate-ddl: true
+    properties:
+      #This entry is put just to avoid a warning message in the logs when you start the spring-boot application.
+      # This bug is from hibernate which tries to retrieve some metadata from postgresql db and failed to find
+      # that and logs as a warning.
+      hibernate.jdbc.lob.non_contextual_creation: true
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:3030/microservice-poc
+    username: postgres
+    password: example
+server:
+  port: 0

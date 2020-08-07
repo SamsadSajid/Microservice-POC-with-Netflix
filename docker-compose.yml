@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  db:
+    container_name: micro_postgres
+    image: postgres
+    restart: always
+    ports:
+      - 3030:5432
+    environment:
+      POSTGRES_PASSWORD: example
+
+  adminer:
+    container_name: micro_adminer
+    image: adminer
+    restart: always
+    ports:
+      - 9080:8080
+
+  redis:
+    container_name: micro_redis
+    image: redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 6389:6379
+
+  localstack:
+    image: localstack/localstack
+    container_name: micro_localstack
+    #    restart: always
+    ports:
+      - "4567-4597:4567-4597"
+      - "8010:8010"
+    environment:
+      - SERVICES=lambda, dynamodb, apigateway, s3, sns, cloudwatch, ssm, stepfunctions, sqs
+      - DEBUG=${DEBUG- }
+      - DATA_DIR=/tmp/localstack/data
+      - PORT_WEB_UI=8010
+      - LAMBDA_EXECUTOR=docker-reuse
+      - KINESIS_ERROR_PROBABILITY=0.01
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - DEFAULT_REGION=ap-southeast-1
+    volumes:
+      - my-datavolume:/tmp/localstack
+volumes:
+  my-datavolume:
